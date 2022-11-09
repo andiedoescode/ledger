@@ -1,0 +1,31 @@
+<%- include('partials/header') -%>
+<div class="container">
+    <div class="mt-5">
+    <h2>Add a CEU</h2>
+    <form action="/course/addCourse" enctype="multipart/form-data" method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title">
+        </div>
+        <div class="mb-3">
+            <label for="presenter" class="form-label">Presenter</label>
+            <input type="text" class="form-control" id="presenter" name="presenter">
+        </div>
+        <div class="mb-3">
+            <label for=ceLength" class="form-label">CE Length</label>
+            <input type="number" min="0" step="0.1" class="form-control" id="ceLength" name="ceLength">
+        </div>
+        <div class="mb-3">
+            <label for="completeDate" class="form-label">Date Completed</label>
+            <input type="date" class="form-control" id="completeDate" name="completeDate">
+        </div>
+        <div class="mb-3">
+            <label for="imgUpload" class="form-label">Certificate</label>
+            <input type="file" class="form-control" id="imageUpload" name="file">
+        </div>
+        <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+    </form>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>
