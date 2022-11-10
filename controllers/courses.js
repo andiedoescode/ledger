@@ -1,17 +1,22 @@
 const cloudinary = require("../middleware/cloudinary");
+const multer = require("../middleware/multer")
 const Course = require("../models/Course");
 // const Comment = require("../models/Comment")
 const User = require("../models/User")
 
 module.exports = {
+
+  //GET /dashboard
   getDashboard: async (req, res) => {
     try {
       const courses = await Course.find().sort({ createdAt: "desc" }).lean();
       res.render("dashboard.ejs", { courses: courses });
     } catch (err) {
-      console.log(err);
+        console.log(err);
     }
   },
+
+  //GET /course/:id
   getCourse: async (req, res) => {
     try {
       const ce = await Course.findById(req.params.id);
@@ -19,12 +24,16 @@ module.exports = {
       const user = await User.findById(ce.createdById);
       res.render("course.ejs", { course: ce, user: req.user });
     } catch (err) {
-      console.log(err);
+        console.log(err);
     }
   },
+
+  //GET /course/addcourse
   newCourse: (req, res) => {
     res.render("addcourse.ejs");
   },
+
+  //POST /course/
   addCourse: async (req, res) => {
     try {
 
@@ -55,7 +64,52 @@ module.exports = {
       console.log("Course has been added!");
       res.redirect("/dashboard");
     } catch (err) {
-      console.log(err);
+        console.log(err);
+    }
+  },
+
+  //GET /course/editCourse/:id
+  editCourse: async (req, res) => {
+    try {
+      const course = await Course.findOne({ _id: req.params.id }).lean()
+      console.log(course.completeDate)
+      if (!course) {
+        console.log(err)
+      }
+      if (course.createdById != req.user.id) {
+        res.redirect("/dashboard")
+      } else {
+        res.render("editCourse.ejs", { course: course, user: req.user })
+      }
+
+    } catch (err) {
+        console.log(err);
+    }
+  },
+
+  //PUT /course/:id
+  updateCourse: async (req, res) => {
+    try {
+      let session = req.session
+      
+      let course = await Course.findById(req.params.id).lean()
+        console.log(course.completeDate)
+  
+        if (!course) {
+          return res.render("/dashboard")
+        }
+  
+        if (course.createdById != req.user.id) {
+          res.redirect("/dashboard")
+        } else {
+          course = await Course.findOneAndUpdate({ _id: req.params.id}, req.body, {
+            new: true,
+            runValidators: true,
+          })
+        }
+        res.redirect("/dashboard");
+      } catch (err) {
+        console.log(err);
     }
   },
 };

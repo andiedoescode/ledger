@@ -7,6 +7,10 @@
       <div class="row justify-content-between">
 
         <%if(course.createdById == user.id){ %>
+          <a href="/course/editCourse/<%= course.id %>"
+          class="col-3">
+            <button class="btn btn-primary fa fa-edit"></button>
+          </a>
         <form
           action="/course/deleteCourse/<%= course.id %>?_method=DELETE"
           method="POST"

@@ -9,6 +9,10 @@ router.get("/:id", ensureAuth, coursesController.getCourse);
 
 router.post("/addCourse", upload.single("file"), coursesController.addCourse);
 
+router.get("/editCourse/:id", ensureAuth, coursesController.editCourse)
+
+router.put("/:id", ensureAuth, upload.single("file"), coursesController.updateCourse)
+
 // router.delete("/deleteCourse/:id", coursesController.deleteCourse);
 
 module.exports = router;
