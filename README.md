@@ -23,7 +23,7 @@ Goal Features:
 + Tracking hours remaining for national license
 + Tracking hours remaining for state license
 + Adjustable CE cycles
-~~ + Uploading CE certificates~~
++ ~~Uploading CE certificates~~
 + Export CE transcript as a PDF
 + Personal notes for each course
 + Marking CE as "in progress"
