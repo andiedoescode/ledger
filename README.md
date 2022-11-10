@@ -35,6 +35,7 @@ Goal Features:
 
 Lots! Mapping through user flow, prototyping with Figma, styling with TailwindCSS rather than vanilla CSS.
 - Logout error - uninstalling Passport 0.6 and reinstalling Passport 0.5 instead
+- Ensuring Multer is included in route when handling multi-part forms
 
 
 # Install
