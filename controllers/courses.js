@@ -1,7 +1,5 @@
 const cloudinary = require("../middleware/cloudinary");
-const multer = require("../middleware/multer")
 const Course = require("../models/Course");
-// const Comment = require("../models/Comment")
 const User = require("../models/User")
 
 module.exports = {
@@ -9,8 +7,10 @@ module.exports = {
   //GET /dashboard
   getDashboard: async (req, res) => {
     try {
-      const courses = await Course.find().sort({ createdAt: "desc" }).lean();
-      res.render("dashboard.ejs", { courses: courses });
+      const courses = await Course.find({ createdById: req.user.id}).sort({ completeDate: "desc" }).lean();
+      const user = req.user
+
+      res.render("dashboard.ejs", { courses: courses, user: req.user});
     } catch (err) {
         console.log(err);
     }
@@ -20,8 +20,8 @@ module.exports = {
   getCourse: async (req, res) => {
     try {
       const ce = await Course.findById(req.params.id);
-    //   const comments = await Comment.find({ postId: req.params.id}).sort({ createdAt: "asc" }).lean();
       const user = await User.findById(ce.createdById);
+
       res.render("course.ejs", { course: ce, user: req.user });
     } catch (err) {
         console.log(err);
@@ -72,7 +72,7 @@ module.exports = {
   editCourse: async (req, res) => {
     try {
       const course = await Course.findOne({ _id: req.params.id }).lean()
-      console.log(course.completeDate)
+
       if (!course) {
         console.log(err)
       }
@@ -109,7 +109,20 @@ module.exports = {
         }
         res.redirect("/dashboard");
       } catch (err) {
+        req.flash('error', { msg: "Could not update this course. "})
         console.log(err);
+    }
+  },
+
+  //DELETE /course/:id
+  deleteCourse: async (req, res) => {
+    try {
+      await Course.findByIdAndDelete({ _id: req.params.id})
+      
+      res.redirect("/dashboard")
+    } catch (err) {
+      req.flash('error', { msg: "Could not delete this course." })
+      console.log (err)
     }
   },
 };
