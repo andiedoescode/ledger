@@ -117,8 +117,7 @@ module.exports = {
   //DELETE /course/:id
   deleteCourse: async (req, res) => {
     try {
-      await Course.findByIdAndDelete({ _id: req.params.id})
-      
+         await Course.findByIdAndDelete({ _id: req.params.id}).lean()
       res.redirect("/dashboard")
     } catch (err) {
       req.flash('error', { msg: "Could not delete this course." })
