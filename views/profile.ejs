@@ -1,17 +1,17 @@
 <%- include('partials/header') -%>
-<div class="container">
-  <div class="row mt-5">
-      <div class="col-6">
-          <div>
-              <p><strong>User Name</strong>: <%= user.userName %></p>
-              <p><strong>Email</strong>: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
-          </div>
-      <div class="row justify-content-center mt-5">
-        <a class="btn btn-primary" href="/dashboard">Return to Dashboard</a>
-      </div>  
-      </div>  
+
+<section class="card lg:card-side w-96 bg-base-100 shadow-xl mx-auto my-16">
+  <div class="card-body">
+    <div class="card-title">
+      <h2 class="mb-8">Profile</h2>
     </div>
-  </div>
-</div>
+    <div>
+        <p><strong>User Name</strong>: <%= user.userName %></p>
+        <p><strong>Email</strong>: <%= user.email %></p>
+        <a href="/editprofile" class="btn btn-primary mt-8">Edit Profile</a>
+    </div>
+
+  </div>  
+</section>
+
 <%- include('partials/footer') -%>

@@ -19,16 +19,49 @@
     />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
+
   <body>
-    <header class="header">
-      <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
-        <div class="container flex flex-wrap justify-between items-center mx-auto">
-        
+
+    <section>
+      <div class="navbar bg-base-100 p-5">
+        <div class="navbar-start">
+          <a href="/dashboard"class="btn btn-ghost font-semibold upper-case text-3xl dark:text-white ">
+            <img src="/imgs/no-bg2.png" class="mr-3 h-6 sm:h-9" alt="Ledger Logo" />
+            Ledger</a>
         </div>
-      </nav>
-      <section class="items-center bg-gray-50">
-        <h1 class="text-7xl font-semibold italic"><a href="/dashboard">Ledger</a></h1>
-        <p class="italic">Keep track of all your CEUs.</p>
-      </section>
-      
-    </header>
+        
+        <!-- Nav bar full width -->
+        <div class="navbar-end">
+          <ul class="menu menu-horizontal p-0 hidden lg:flex lg:flex-shrink-0">
+            <!--If not logged in, only show log in/sign up-->
+            <% if(typeof user === 'undefined') { %>
+              <li><a href="/login" class="">Log In</a></li>
+              <li><a href="/signup" class="btn btn-secondary">Sign Up</a></li>
+            <% } else { %>
+                    <li><a href="/dashboard" class="navLink">Dashboard</a></li>
+                    <li><a href="/profile" class="navLink">Profile</a></li>
+                    <li><a href="/logout" class="btn btn-outline btn-error">Log Out</a></li>
+            <% } %>
+          </ul>
+
+          <!-- Nav bar mobile dropdown -->
+          <div class="dropdown dropdown-end">
+            <label tabindex="0" class="btn btn-ghost lg:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+            </label>
+            <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+              <!--If not logged in, only show log in/sign up-->
+              <% if(typeof user === 'undefined') { %>
+                <li><a href="/login" class="">Log In</a></li>
+                <li><a href="/signup" class="btn-success">Sign Up</a></li>
+              <% } else { %>
+                      <li><a href="/dashboard" class="navLink">Dashboard</a></li>
+                      <li><a href="/profile" class="navLink">Profile</a></li>
+                      <li><a href="/logout" class="btn btn-outline btn-error">Log Out</a></li>
+              <% } %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="h-full">

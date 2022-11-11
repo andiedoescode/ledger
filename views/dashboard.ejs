@@ -1,20 +1,22 @@
 <%- include('partials/header') -%>
-  <div class="container">
-    <a class="btn btn-primary" href="/profile">Your Profile</a>
-    <a class="btn btn-primary" href="/addcourse">Add a CEU</a>
-    <div class="row justify-content-center mt-5">
-      <table>
+  <div class="container mx-auto h-full">
+    <div class="mb-8 mx-auto">
+      <a class="btn btn-primary" href="/addcourse">Add a CEU</a>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="table w-full">
         <thead>
           <tr>
-            <th class="">Course Title</th>
-            <th>Course Length</th>
-            <th>Options</th>
+            <th class="text-lg">Course Title</th>
+            <th class="text-lg">Course Length</th>
+            <th class="text-lg">Options</th>
           </tr>
         </thead>
         <tbody>
             <% if (courses.length > 0) { %>
               <% for(var i=0; i<courses.length; i++) { %>
-                <tr>
+                <tr class="hover">
                   <td>
                     <a href="/course/<%= courses[i]._id%>">
                       <%= courses[i].title %>
@@ -24,17 +26,23 @@
                       <%= courses[i].ceLength %>
                   </td>
                   <td>
-                    <a href="/course/editCourse/<%= courses[i].id %>"
-                      class="col-3">
-                        <button class="btn btn-primary fa fa-edit"></button>
-                    </a>
-                    <form
-                      action="/course/<%= courses[i].id %>?_method=DELETE"
-                      method="POST"
-                      class="col-3">
-                      <button class="btn btn-primary fa fa-trash" type="submit"></button>
-                    </form>
-                  </td>
+                    <ul class="flex">
+                      <li>
+                        <a href="/course/editCourse/<%= courses[i]._id %>"
+                        class="col-3">
+                        <button class="btn btn-secondary mr-2 fa fa-edit"></button>
+                        </a>
+                      </li>
+                     <li>
+                        <form
+                          action="/course/<%= courses[i]._id %>?_method=DELETE"
+                          method="POST"
+                          class="col-3">
+                          <button class="btn btn-secondary fa fa-trash" type="submit"></button>
+                        </form>
+                     </li>
+                    </ul>
+                 </td>
                 </tr>
               <% } %>
             <% } else { %>
