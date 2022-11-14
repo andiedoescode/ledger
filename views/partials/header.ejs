@@ -35,8 +35,8 @@
           <ul class="menu menu-horizontal p-0 hidden lg:flex lg:flex-shrink-0">
             <!--If not logged in, only show log in/sign up-->
             <% if(typeof user === 'undefined') { %>
-              <li><a href="/login" class="">Log In</a></li>
-              <li><a href="/signup" class="btn btn-secondary">Sign Up</a></li>
+              <li><span><a href="/login" class="text-base">Log In</a></span></li>
+              <li><span><a href="/signup" class="btn btn-secondary text-base">Sign Up</a></span></li>
             <% } else { %>
                     <li><a href="/dashboard" class="navLink">Dashboard</a></li>
                     <li><a href="/profile" class="navLink">Profile</a></li>
