@@ -11,13 +11,8 @@
       sizes="32x32"
       href="/imgs/favicon-32x32.png"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-      crossorigin="anonymous"
-    />
     <link rel="stylesheet" href="/css/style.css" />
+    <script src="https://kit.fontawesome.com/bb1dd7775a.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -35,11 +30,11 @@
           <ul class="menu menu-horizontal p-0 hidden lg:flex lg:flex-shrink-0">
             <!--If not logged in, only show log in/sign up-->
             <% if(typeof user === 'undefined') { %>
-              <li><span><a href="/login" class="text-base">Log In</a></span></li>
+              <li><span><a href="/login" class="btn btn-ghost text-base">Log In</a></span></li>
               <li><span><a href="/signup" class="btn btn-secondary text-base">Sign Up</a></span></li>
             <% } else { %>
-                    <li><a href="/dashboard" class="navLink">Dashboard</a></li>
-                    <li><a href="/profile" class="navLink">Profile</a></li>
+                    <li><a href="/dashboard" class="">Dashboard</a></li>
+                    <li><a href="/profile" class="">Profile</a></li>
                     <li><a href="/logout" class="btn btn-outline btn-error">Log Out</a></li>
             <% } %>
           </ul>
@@ -52,11 +47,11 @@
             <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
               <!--If not logged in, only show log in/sign up-->
               <% if(typeof user === 'undefined') { %>
-                <li><a href="/login" class="">Log In</a></li>
-                <li><a href="/signup" class="btn-success">Sign Up</a></li>
+                <li><span><a href="/login" class="btn btn-ghost text-base">Log In</a></span></li>
+                <li><span><a href="/signup" class="btn btn-secondary text-base">Sign Up</a></span></li>
               <% } else { %>
-                      <li><a href="/dashboard" class="navLink">Dashboard</a></li>
-                      <li><a href="/profile" class="navLink">Profile</a></li>
+                      <li><a href="/dashboard" class="">Dashboard</a></li>
+                      <li><a href="/profile" class="">Profile</a></li>
                       <li><a href="/logout" class="btn btn-outline btn-error">Log Out</a></li>
               <% } %>
             </ul>
@@ -64,4 +59,4 @@
         </div>
       </div>
     </section>
-    <div class="h-full">
+    <div class="pb-12">
