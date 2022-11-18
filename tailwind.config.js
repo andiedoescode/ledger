@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./views/**/*.ejs"],
+  content: ["./views/**/*.ejs", "./node_modules/tw-elements/dist/js/**/*.js"],
   daisyui: {
     themes: [
       {
@@ -18,5 +18,5 @@ module.exports = {
     ],
   },
 
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui", "tw-elements/dist/plugin")],
 }
