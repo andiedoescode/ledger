@@ -1,39 +1,37 @@
 <%- include('partials/header') -%>
-    <main class="">
-        <div class="flex justify-center text-lg">
-            <section>
-                <% if (locals.messages.errors) { %>
-                    <% messages.errors.forEach( el => { %>
-                        <div class="alert alert-error"><%= el.msg %></div>
-                    <% }) %>    
-                <% } %>
-                <% if (locals.messages.info) { %>
-                    <% messages.info.forEach( el => { %>
-                        <div class="alert alert-info"><%= el.msg %></div>
-                    <% }) %>    
-                <% } %>
-                <form action="/signup" method="POST">
-                    <div class="mb-3">
-                        <label for="userName" class="label">User Name</label>
-                        <input type="text" class="form-control input input-bordered w-full max-w-xs bg-slate-50" id="userName" name="userName">
-                      </div>
-                    <div class="mb-3">
-                      <label for="email" class="label">Email address</label>
-                      <input type="email" class="form-control input input-bordered w-full max-w-xs bg-slate-50" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
-                      <div id="emailHelp" class="label-text-alt text-sm">We'll never share your email with anyone else.</div>
-                    </div>
-                    <div class="mb-3">
-                      <label for="password" class="label">Password</label>
-                      <input type="password" class="form-control input input-bordered w-full max-w-xs bg-slate-50" id="password" name="password">
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirmPassword" class="label">Confirm Password</label>
-                        <input type="password" class="form-control input input-bordered w-full max-w-xs bg-slate-50" id="confirmPassword" name="confirmPassword">
-                      </div>
-                    <button type="submit" class="btn btn-secondary text-lg">Submit</button>
-                  </form>
-            </section>
-        </div>
+    <main>
+        <section class="md:max-w-md mx-auto text-lg">
+          <% if (locals.messages.errors) { %>
+              <% messages.errors.forEach( el => { %>
+                  <div class="alert alert-error"><%= el.msg %></div>
+              <% }) %>    
+          <% } %>
+          <% if (locals.messages.info) { %>
+              <% messages.info.forEach( el => { %>
+                  <div class="alert alert-info"><%= el.msg %></div>
+              <% }) %>    
+          <% } %>
+          <form action="/signup" method="POST">
+              <div class="mb-3">
+                  <label for="userName" class="label">User Name</label>
+                  <input type="text" class="form-control input input-bordered w-full max-w-xs bg-slate-50 md:max-w-md" id="userName" name="userName">
+                </div>
+              <div class="mb-3">
+                <label for="email" class="label">Email address</label>
+                <input type="email" class="form-control input input-bordered w-full max-w-xs bg-slate-50 md:max-w-md"" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                <div id="emailHelp" class="label-text-alt text-sm">We'll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="label">Password</label>
+                <input type="password" class="form-control input input-bordered w-full max-w-xs bg-slate-50 md:max-w-md" id="password" name="password">
+              </div>
+              <div class="mb-3">
+                  <label for="confirmPassword" class="label">Confirm Password</label>
+                  <input type="password" class="form-control input input-bordered w-full max-w-xs bg-slate-50 md:max-w-md" id="confirmPassword" name="confirmPassword">
+                </div>
+              <button type="submit" class="btn btn-secondary text-lg">Sign Up</button>
+            </form>
+        </section>
     </main>
 
 <%- include('partials/footer') -%>

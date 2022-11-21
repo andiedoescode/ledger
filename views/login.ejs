@@ -1,22 +1,19 @@
 <%- include('partials/header') -%>
 
-<main class="">
-  <div class="flex justify-center text-lg">
-    <section class="col-6 mt-5">
+<main>
+  <section class="mt-5 md:max-w-md mx-auto text-lg">
       <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
       <div class="alert alert-danger"><%= el.msg %></div>
       <% }) %> <% } %> <% if (locals.messages.info) { %> <%
       messages.info.forEach( el => { %>
       <div class="alert alert-info"><%= el.msg %></div>
       <% }) %> <% } %>
-      <form action="/login" method="POST">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label"
-            >Email address</label
-          >
+      <form action="/login" method="POST" class="mx-auto">
+        <div class="mb-3 items-stretch">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
           <input
             type="email"
-            class="form-control"
+            class="form-control input input-bordered w-full max-w-sm bg-slate-50 md:max-w-md"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             name="email"
@@ -26,15 +23,14 @@
           <label for="exampleInputPassword1" class="form-label">Password</label>
           <input
             type="password"
-            class="form-control"
+            class="form-control input input-bordered w-full max-w-sm bg-slate-50 md:max-w-md"
             id="exampleInputPassword1"
             name="password"
           />
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Log In</button>
       </form>
-    </section>
-  </div>
+  </section>
 </main>
 
 <%- include('partials/footer') -%>
