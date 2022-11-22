@@ -9,42 +9,52 @@
         <thead>
           <tr>
             <th class="text-lg">Course Title</th>
-            <th class="text-lg">Course Length</th>
+            <th class="text-lg hidden sm:block">Course Length</th>
             <th class="text-lg">Options</th>
           </tr>
         </thead>
         <tbody>
-            <% if (courses.length > 0) { %>
-              <% for(var i=0; i<courses.length; i++) { %>
-                <tr class="hover">
-                  <td>
-                    <a href="/course/<%= courses[i]._id%>">
-                      <%= courses[i].title %>
-                    </a>
-                  </td>
-                  <td>
-                      <%= courses[i].ceLength %>
-                  </td>
-                  <td>
-                    <ul class="flex">
-                      <li>
-                        <a href="/course/editCourse/<%= courses[i]._id %>"
-                        class="col-3">
-                        <button class="btn btn-secondary mr-2 fa fa-edit"></button>
-                        </a>
-                      </li>
-                     <li>
-                        <form
-                          action="/course/<%= courses[i]._id %>?_method=DELETE"
-                          method="POST"
+            
+
+              <% if (courses.length > 0) { %>
+                <% for(var i=0; i<courses.length; i++) { %>
+                  <tr class="hover">
+                    <td class="collapse collapse-arrow">
+                        <input type="checkbox"/> 
+                        <div class="collapse-title text-xl">
+                          <a href="/course/<%= courses[i]._id%>">
+                            <%= courses[i].title %>
+                          </a>
+                        </div>
+                        <div class="collapse-content"> 
+                          <h4>Length: <%= courses[i].ceLength %> hr(s)</h4>
+                          <h4>Presenter: <%= courses[i].presenter %></h4>
+                          <h4>Date: <%= moment.utc(courses[i].completeDate).format('MMM DD, YYYY') %></h4>
+                        </div>
+                    </td>
+                    <td class="hidden sm:table-cell">
+                        <%= courses[i].ceLength %>
+                    </td>
+                    <td>
+                      <ul class="flex">
+                        <li>
+                          <a href="/course/editCourse/<%= courses[i]._id %>"
                           class="col-3">
-                          <button class="btn btn-secondary fa fa-trash" type="submit"></button>
-                        </form>
-                     </li>
-                    </ul>
-                 </td>
-                </tr>
-              <% } %>
+                          <button class="btn btn-primary mr-2 fa fa-edit"></button>
+                          </a>
+                        </li>
+                       <li>
+                          <form
+                            action="/course/<%= courses[i]._id %>?_method=DELETE"
+                            method="POST"
+                            class="col-3">
+                            <button class="btn btn-error fa fa-trash" type="submit"></button>
+                          </form>
+                       </li>
+                      </ul>
+                   </td>
+                  </tr>
+                <% } %>
             <% } else { %>
               <span>You do not have any logged courses yet.</span>
             <% } %>
