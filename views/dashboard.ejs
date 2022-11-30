@@ -1,27 +1,27 @@
 <%- include('partials/header') -%>
   <div class="container mx-auto h-full">
-    <div class="mb-8 mx-auto">
-      <a class="btn btn-primary" href="/addcourse">Add a CEU</a>
+    <div class="mb-8 pl-5">
+      <a class="hidden sm:inline-grid btn btn-primary rounded-full" href="/addcourse">Add a CEU</a>
+      <a class="btn btn-primary btn-circle text-3xl font-black sm:hidden pb-1.5" href="/addcourse">+</a>
     </div>
 
     <div class="overflow-x-auto">
       <table class="table w-full">
         <thead>
           <tr>
-            <th class="text-lg">Course Title</th>
-            <th class="text-lg hidden sm:block">Course Length</th>
-            <th class="text-lg">Options</th>
+            <th class="text-base sm:text-xl">Course Title</th>
+            <th class="text-base sm:text-xl hidden sm:block text-center">Length</th>
+            <th class="text-base sm:text-xl text-center">Options</th>
           </tr>
         </thead>
         <tbody>
             
-
               <% if (courses.length > 0) { %>
                 <% for(var i=0; i<courses.length; i++) { %>
                   <tr class="hover">
                     <td class="collapse collapse-arrow">
                         <input type="checkbox"/> 
-                        <div class="collapse-title text-xl">
+                        <div class="collapse-title text-md sm:text-lg">
                           <a href="/course/<%= courses[i]._id%>">
                             <%= courses[i].title %>
                           </a>
@@ -32,14 +32,13 @@
                           <h4>Date: <%= moment.utc(courses[i].completeDate).format('MMM DD, YYYY') %></h4>
                         </div>
                     </td>
-                    <td class="hidden sm:table-cell">
+                    <td class="hidden sm:table-cell text-center">
                         <%= courses[i].ceLength %>
                     </td>
                     <td>
-                      <ul class="flex">
+                      <ul class="flex justify-center">
                         <li>
-                          <a href="/course/editCourse/<%= courses[i]._id %>"
-                          class="col-3">
+                          <a href="/course/editCourse/<%= courses[i]._id %>" class="col-3">
                           <button class="btn btn-primary mr-2 fa fa-edit"></button>
                           </a>
                         </li>
