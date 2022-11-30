@@ -12,4 +12,20 @@ module.exports = {
       console.log(err);
     }
   },
+  editProfile: async (req, res) => {
+    try {
+      const profile = await User.findOne({ _id: req.user.id }).lean()
+      console.log(profile._id)
+      console.log(req.user.id)
+
+      if (profile.id !== req.user.id) {
+        res.redirect("/dashboard")
+      } else {
+        res.render("editProfile.ejs", { user: req.user })
+      }
+
+    } catch (err) {
+        console.log(err);
+    }
+  }
 }
