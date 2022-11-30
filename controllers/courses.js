@@ -23,7 +23,7 @@ module.exports = {
       const ce = await Course.findById(req.params.id);
       const user = await User.findById(ce.createdById);
 
-      res.render("course.ejs", { course: ce, user: req.user });
+      res.render("course.ejs", { course: ce, user: req.user, moment:moment });
     } catch (err) {
         console.log(err);
     }
