@@ -31,7 +31,8 @@ module.exports = {
 
   //GET /course/addcourse
   newCourse: (req, res) => {
-    res.render("addcourse.ejs");
+    let today = moment.utc().format('YYYY-MM-DD')
+    res.render("addcourse.ejs", {today: today});
   },
 
   //POST /course/
