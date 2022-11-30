@@ -6,7 +6,8 @@
       <h2><%= course.title %></h2>
     </div>
 
-      <div class="row justify-content-between">
+    <!-- If logged in user is creator, show edit and delete -->
+    <div class="row justify-content-between">
 
         <%if(course.createdById == user.id){ %>
 
@@ -27,13 +28,17 @@
           </ul>
 
         <%}%>
-      </div>
     </div>
+
+    <!-- Course Info -->
     <div>
       <h4>Length: <%= course.ceLength %> hr(s)</h4>
-                          <h4>Presenter: <%= course.presenter %></h4>
-                          <h4>Date: <%= moment.utc(course.completeDate).format('MMM DD, YYYY') %></h4>
-      <p><%= course.ceLength %></p>
+      <h4>Presenter: <%= course.presenter %></h4>
+      <h4>Date: <%= moment.utc(course.completeDate).format('MMM DD, YYYY') %></h4>
+      <h4>Certificate:</h4>
     </div>
-    
+
+  </div>
+
+</div>  
 <%- include('partials/footer') -%>
