@@ -18,10 +18,10 @@ module.exports = {
       console.log(profile._id)
       console.log(req.user.id)
 
-      if (profile.id !== req.user.id) {
-        res.redirect("/dashboard")
+      if (profile._id == req.user.id) {
+        res.render("editprofile.ejs", { user: req.user })
       } else {
-        res.render("editProfile.ejs", { user: req.user })
+        res.redirect("/dashboard")
       }
 
     } catch (err) {
