@@ -3421,11 +3421,6 @@ html {
   background-color: hsl(var(--b3, var(--b2)) / var(--tw-bg-opacity));
 }
 
-.decoration-slice {
-  -webkit-box-decoration-break: slice;
-          box-decoration-break: slice;
-}
-
 .p-5 {
   padding: 1.25rem;
 }
@@ -3519,10 +3514,6 @@ html {
 
 .underline {
   text-decoration-line: underline;
-}
-
-.decoration-dashed {
-  text-decoration-style: dashed;
 }
 
 .shadow-xl {
