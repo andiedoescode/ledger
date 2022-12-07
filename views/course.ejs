@@ -36,6 +36,11 @@
       <h4><span class="font-medium">Presenter:</span> <%= course.presenter %></h4>
       <h4><span class="font-medium">Date:</span> <%= moment.utc(course.completeDate).format('MMM DD, YYYY') %></h4>
       <h4><span class="font-medium">Certificate:</span></h4>
+      <% if(course.cloudinaryId) { %> 
+        <img src=<%= course.image %>>
+      <% } else { %>
+      Not uploaded
+      <% } %>
     </div>
 
   </div>
