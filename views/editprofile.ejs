@@ -16,22 +16,28 @@
             <form action="/profile/<%= user._id%>?_method=PUT" enctype="multipart/form-data" method="POST">
                 <div class="mb-3">
                     <label for="email" class="label">
-                        <span class="label-text text-lg">Email: <span class="italic font-normal"><%= user.email %><span></span>
+                        <span class="label-text text-lg">Email: <%= user.email %></span>
                     </label>
-
-                    <!-- <input type="text" class="input input-bordered w-full max-w-xs bg-slate-50" id="email" name="email" value="<%= user.email%>"> -->
                 </div>
                 <div class="mb-3">
                     <label for="userName" class="label">
                         <span class="label-text text-lg">Name</span>
                     </label>
-                    <input type="text" class="input input-bordered w-full max-w-xs bg-slate-50" id="userName" name="userName" value="<%= user.userName%>">
+                    <input type="text" 
+                        class="input input-bordered w-full max-w-xs bg-slate-50" 
+                        id="userName"
+                        name="userName"
+                        value="<%= user.userName%>">
                 </div>
                 <div class="mb-3">
                     <label for="profId" class="label">
                         <span class="label-text text-lg">Professional ID#</span>
                     </label>
-                    <input type="text" class="input input-bordered w-full max-w-xs bg-slate-50" id="userName" name="userName" value="<%= user.profId%>">
+                    <input type="text"
+                        class="input input-bordered w-full max-w-xs bg-slate-50"
+                        id="profId"
+                        name="profId"
+                        value="<%= user.profId%>">
                 </div>
                 <div class="mb-3">
                     <label for="pfpUpload" class="label">
