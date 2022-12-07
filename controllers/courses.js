@@ -30,12 +30,14 @@ module.exports = {
   },
 
   //GET /course/addcourse
+  //Get page to add a new course
   newCourse: (req, res) => {
     let today = moment.utc().format('YYYY-MM-DD');
     res.render("addcourse.ejs", {today: today, user: req.user});
   },
 
   //POST /course/
+  //Submit the new course
   addCourse: async (req, res) => {
     try {
 
@@ -59,8 +61,8 @@ module.exports = {
           ceLength: req.body.ceLength,
           completeDate: req.body.completeDate,
           createdById: req.user.id,
-          image: null,
-          cloudinaryId: null,
+          image: "",
+          cloudinaryId: "",
         });
       }
       console.log("Course has been added!");
@@ -71,6 +73,7 @@ module.exports = {
   },
 
   //GET /course/editCourse/:id
+  //Get page to edit specific course
   editCourse: async (req, res) => {
     try {
       const course = await Course.findOne({ _id: req.params.id }).lean()
@@ -90,28 +93,36 @@ module.exports = {
   },
 
   //PUT /course/:id
+  //Update the specific course
   updateCourse: async (req, res) => {
-    try {
-      let session = req.session
-      
-      let course = await Course.findById(req.params.id).lean()
-        console.log(course.completeDate)
-  
-        if (!course) {
-          return res.render("/dashboard")
+    let course = await Course.findById(req.params.id)
+
+    try {    
+
+      const courseData = {
+        title: req.body.title,
+        presenter: req.body.presenter,
+        ceLength: req.body.ceLength,
+        completeDate: req.body.completeDate,
+        createdById: req.user.id,
+      }
+
+      if (req.file) {
+        if (course.cloudinaryId) {
+          await cloudinary.uploader.destroy(course.cloudinaryId)
         }
-  
-        if (course.createdById != req.user.id) {
-          res.redirect("/dashboard")
-        } else {
-          course = await Course.findOneAndUpdate({ _id: req.params.id}, req.body, {
-            new: true,
-            runValidators: true,
-          })
-        }
+
+        const result = await cloudinary.uploader.upload(req.file.path)
+
+        courseData.image = result.secure_url
+        courseData.cloudinaryId = result.public_id
+      }
+      await Course.updateOne (course, courseData)
+
+        console.log("Course has been updated!")
         res.redirect("/dashboard");
       } catch (err) {
-        req.flash('error', { msg: "Could not update this course. "})
+        req.flash('error', { msg: "Could not update this course."})
         console.log(err);
     }
   },
