@@ -5,9 +5,25 @@
     <div class="card-title">
       <h2 class="mb-8">Profile</h2>
     </div>
+    <!-- Profile picture -->
+    <div>
+      <% if(user.cloudinaryId) { %> 
+        <img src=<%= user.image %>>
+      <% } else { %>
+      Not provided
+      <% } %>
+    </div>
+
+    <!-- Profile information -->
     <div>
         <p><strong>User Name</strong>: <%= user.userName %></p>
         <p><strong>Email</strong>: <%= user.email %></p>
+        <p><strong>Professional ID</strong>:
+          <% if(user.profId) { %> 
+            <%= user.profId %>
+          <% } else { %>
+          Not provided
+          <% } %></p>
         <a href="/editprofile/" class="btn btn-primary mt-8">Edit Profile</a>
     </div>
 
