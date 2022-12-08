@@ -2,21 +2,21 @@
 
 <section class="card lg:card-side w-96 bg-base-100 shadow-xl mx-auto my-16">
   <div class="card-body">
-    <div class="card-title">
-      <h2 class="mb-8">Profile</h2>
+    <div class="card-title mx-auto">
+      <h2 class="font-bold mb-2"><%= user.userName %>'s Profile</h2>
     </div>
     <!-- Profile picture -->
     <div>
       <% if(user.cloudinaryId) { %> 
-        <img src=<%= user.image %>>
+        <img src=<%= user.image %> class="w-1/2 mx-auto rounded-full border-double border-8 border-accent">
       <% } else { %>
-      Not provided
+        <img src="/imgs/place-avatar-transp.svg" class="w-1/2 mx-auto rounded-full border-double border-8 border-accent">
       <% } %>
     </div>
 
     <!-- Profile information -->
     <div>
-        <p><strong>User Name</strong>: <%= user.userName %></p>
+        <p><strong>Name</strong>: <%= user.userName %></p>
         <p><strong>Email</strong>: <%= user.email %></p>
         <p><strong>Professional ID</strong>:
           <% if(user.profId) { %> 
