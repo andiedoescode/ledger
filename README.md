@@ -2,7 +2,7 @@
 
 A centralized repository for professionals to track and log completed continuing education courses.
 
-**Link to project:** Coming soon!
+**Link to project:** [Deployed version](https://ledger.cyclic.app/)
 
 <!-- ![alt tag](http://placecorgi.com/1200/650) -->
 
