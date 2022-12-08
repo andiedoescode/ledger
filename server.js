@@ -57,7 +57,7 @@ app.use("/course", courseRoutes);
 //Server running
 // Connect to database before listening
 connectDB().then(() => {
-  app.listen(PORT, () => {
+  app.listen(process.env.PORT, () => {
     console.log("Server is running, you better catch it!")
   })
 });
