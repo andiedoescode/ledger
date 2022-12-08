@@ -84,7 +84,7 @@ module.exports = {
       if (course.createdById != req.user.id) {
         res.redirect("/dashboard")
       } else {
-        res.render("editCourse.ejs", { course: course, user: req.user })
+        res.render("editcourse.ejs", { course: course, user: req.user })
       }
 
     } catch (err) {
