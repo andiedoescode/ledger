@@ -3300,6 +3300,10 @@ html {
   height: 1.25rem;
 }
 
+.h-12 {
+  height: 3rem;
+}
+
 .w-full {
   width: 100%;
 }
@@ -3582,6 +3586,10 @@ input[type=number]::-webkit-outer-spin-button {
 
   .sm\:h-9 {
     height: 2.25rem;
+  }
+
+  .sm\:h-14 {
+    height: 3.5rem;
   }
 
   .sm\:w-1\/2 {
