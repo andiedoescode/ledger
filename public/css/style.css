@@ -430,22 +430,22 @@ html {
 }
 
 :root {
-  --p: 211 80% 50%;
-  --pf: 211 80% 40%;
+  --p: 217 91% 60%;
+  --pf: 217 91% 48%;
   --sf: 163 100% 22%;
   --af: 28 97% 32%;
   --nf: 228 13% 24%;
-  --b2: 240 9% 80%;
-  --b3: 240 9% 72%;
-  --bc: 240 12% 18%;
-  --pc: 211 100% 90%;
+  --b2: 220 14% 86%;
+  --b3: 220 14% 78%;
+  --bc: 220 7% 19%;
+  --pc: 217 100% 92%;
   --sc: 163 100% 85%;
   --ac: 28 100% 88%;
   --nc: 228 61% 86%;
   --inc: 217 100% 14%;
   --suc: 150 100% 86%;
   --wac: 35 100% 12%;
-  --erc: 5 100% 13%;
+  --erc: 21 100% 90%;
   --rounded-box: 1rem;
   --rounded-btn: 0.5rem;
   --rounded-badge: 1.9rem;
@@ -459,12 +459,84 @@ html {
   --s: 163 100% 27%;
   --a: 28 97% 40%;
   --n: 228 13% 30%;
-  --b1: 240 9% 89%;
+  --b1: 220 14% 96%;
   --in: 217 53% 68%;
   --su: 150 100% 30%;
   --wa: 35 88% 59%;
-  --er: 5 83% 67%;
+  --er: 21 90% 48%;
   darken: #0D0630;
+}
+
+[data-theme=mytheme] {
+  --p: 217 91% 60%;
+  --pf: 217 91% 48%;
+  --sf: 163 100% 22%;
+  --af: 28 97% 32%;
+  --nf: 228 13% 24%;
+  --b2: 220 14% 86%;
+  --b3: 220 14% 78%;
+  --bc: 220 7% 19%;
+  --pc: 217 100% 92%;
+  --sc: 163 100% 85%;
+  --ac: 28 100% 88%;
+  --nc: 228 61% 86%;
+  --inc: 217 100% 14%;
+  --suc: 150 100% 86%;
+  --wac: 35 100% 12%;
+  --erc: 21 100% 90%;
+  --rounded-box: 1rem;
+  --rounded-btn: 0.5rem;
+  --rounded-badge: 1.9rem;
+  --animation-btn: 0.25s;
+  --animation-input: .2s;
+  --btn-text-case: uppercase;
+  --btn-focus-scale: 0.95;
+  --border-btn: 1px;
+  --tab-border: 1px;
+  --tab-radius: 0.5rem;
+  --s: 163 100% 27%;
+  --a: 28 97% 40%;
+  --n: 228 13% 30%;
+  --b1: 220 14% 96%;
+  --in: 217 53% 68%;
+  --su: 150 100% 30%;
+  --wa: 35 88% 59%;
+  --er: 21 90% 48%;
+  darken: #0D0630;
+}
+
+[data-theme=container] {
+  center: true;
+  --pf: 0 0% 0%;
+  --sf: 0 0% 0%;
+  --af: 0 0% 0%;
+  --nf: 0 0% 0%;
+  --b1: 0 0% 100%;
+  --b2: 0 0% 0%;
+  --b3: 0 0% 0%;
+  --in: 198 93% 60%;
+  --su: 158 64% 52%;
+  --wa: 43 96% 56%;
+  --er: 0 91% 71%;
+  --bc: 0 0% 80%;
+  --pc: 0 0% 80%;
+  --sc: 0 0% 80%;
+  --ac: 0 0% 80%;
+  --nc: 0 0% 80%;
+  --inc: 198 100% 12%;
+  --suc: 158 100% 10%;
+  --wac: 43 100% 11%;
+  --erc: 0 100% 14%;
+  --rounded-box: 1rem;
+  --rounded-btn: 0.5rem;
+  --rounded-badge: 1.9rem;
+  --animation-btn: 0.25s;
+  --animation-input: .2s;
+  --btn-text-case: uppercase;
+  --btn-focus-scale: 0.95;
+  --border-btn: 1px;
+  --tab-border: 1px;
+  --tab-radius: 0.5rem;
 }
 
 *, ::before, ::after {
@@ -1216,6 +1288,62 @@ html {
   justify-content: flex-end;
 }
 
+.radial-progress {
+  position: relative;
+  display: inline-grid;
+  height: var(--size);
+  width: var(--size);
+  place-content: center;
+  border-radius: 9999px;
+  background-color: transparent;
+  vertical-align: middle;
+  box-sizing: content-box;
+  --value: 0;
+  --size: 5rem;
+  --thickness: calc(var(--size) / 10);
+}
+
+.radial-progress::-moz-progress-bar {
+  -moz-appearance: none;
+       appearance: none;
+  background-color: transparent;
+}
+
+.radial-progress::-webkit-progress-value {
+  -webkit-appearance: none;
+          appearance: none;
+  background-color: transparent;
+}
+
+.radial-progress::-webkit-progress-bar {
+  -webkit-appearance: none;
+          appearance: none;
+  background-color: transparent;
+}
+
+.radial-progress:before,
+.radial-progress:after {
+  position: absolute;
+  border-radius: 9999px;
+  content: "";
+}
+
+.radial-progress:before {
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background: radial-gradient(farthest-side, currentColor 98%, #0000) top/var(--thickness) var(--thickness) no-repeat, conic-gradient(currentColor calc(var(--value) * 1%), #0000 0);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(99% - var(--thickness)), #000 calc(100% - var(--thickness)));
+  mask: radial-gradient(farthest-side, #0000 calc(99% - var(--thickness)), #000 calc(100% - var(--thickness)));
+}
+
+.radial-progress:after {
+  inset: calc(50% - var(--thickness) / 2);
+  transform: rotate(calc(var(--value) * 3.6deg - 90deg)) translate(calc(var(--size) / 2 - 50%));
+  background-color: currentColor;
+}
+
 .range {
   height: 1.5rem;
   width: 100%;
@@ -1272,6 +1400,20 @@ html {
   height: auto;
 }
 
+.stats {
+  display: inline-grid;
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b1) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--bc) / var(--tw-text-opacity));
+  border-radius: var(--rounded-box, 1rem);
+}
+
+:where(.stats) {
+  grid-auto-flow: column;
+  overflow-x: auto;
+}
+
 .stat {
   display: inline-grid;
   width: 100%;
@@ -1284,6 +1426,20 @@ html {
   padding-right: 1.5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.stat-title {
+  grid-column-start: 1;
+  white-space: nowrap;
+  opacity: 0.6;
+}
+
+.stat-value {
+  grid-column-start: 1;
+  white-space: nowrap;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 800;
 }
 
 .steps .step {
@@ -2562,6 +2718,15 @@ html {
   padding-right: 1rem;
 }
 
+:where(.stats) > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-x-reverse: 0;
+  border-right-width: calc(1px * var(--tw-divide-x-reverse));
+  border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(0px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(0px * var(--tw-divide-y-reverse));
+}
+
 .steps .step:before {
   top: 0px;
   grid-column-start: 1;
@@ -3352,6 +3517,10 @@ html {
   border-radius: 9999px;
 }
 
+.border-2 {
+  border-width: 2px;
+}
+
 .border-8 {
   border-width: 8px;
 }
@@ -3375,31 +3544,41 @@ html {
   background-color: rgb(248 250 252 / var(--tw-bg-opacity));
 }
 
+.bg-zinc-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 250 250 / var(--tw-bg-opacity));
+}
+
 .bg-info {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--in) / var(--tw-bg-opacity));
 }
 
-.bg-base-300 {
+.bg-slate-300 {
   --tw-bg-opacity: 1;
-  background-color: hsl(var(--b3, var(--b2)) / var(--tw-bg-opacity));
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
 }
 
-.p-5 {
-  padding: 1.25rem;
-}
-
-.p-0 {
-  padding: 0px;
+.p-4 {
+  padding: 1rem;
 }
 
 .p-2 {
   padding: 0.5rem;
 }
 
+.p-3 {
+  padding: 0.75rem;
+}
+
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .pt-5 {
@@ -3418,8 +3597,12 @@ html {
   padding-bottom: 0.25rem;
 }
 
-.pb-12 {
-  padding-bottom: 3rem;
+.pb-3 {
+  padding-bottom: 0.75rem;
+}
+
+.pb-2 {
+  padding-bottom: 0.5rem;
 }
 
 .text-center {
@@ -3473,6 +3656,16 @@ html {
 
 .italic {
   font-style: italic;
+}
+
+.text-secondary {
+  --tw-text-opacity: 1;
+  color: hsl(var(--s) / var(--tw-text-opacity));
+}
+
+.text-primary {
+  --tw-text-opacity: 1;
+  color: hsl(var(--p) / var(--tw-text-opacity));
 }
 
 .text-base-content {

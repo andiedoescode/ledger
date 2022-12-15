@@ -18,7 +18,7 @@
   <body>
 
     <section>
-      <div class="navbar bg-base-100 p-5">
+      <div class="navbar bg-slate-300 pb-2">
         <div class="navbar-start">
           <a href="/dashboard"class="btn btn-ghost font-semibold upper-case text-3xl dark:text-white ">
             <img src="/imgs/logo.svg" class="mr-3 h-12 sm:h-14" alt="Ledger Logo" /></a>
@@ -26,7 +26,7 @@
         
         <!-- Nav bar full width -->
         <div class="navbar-end">
-          <ul class="menu menu-horizontal p-0 hidden lg:flex lg:flex-shrink-0">
+          <ul class="menu menu-horizontal p-2 hidden lg:flex lg:flex-shrink-0">
             <!--If not logged in, only show log in/sign up-->
             <% if(typeof user === 'undefined') { %>
               <li><span><a href="/login" class="btn btn-ghost text-base">Log In</a></span></li>
@@ -58,4 +58,4 @@
         </div>
       </div>
     </section>
-    <div class="pb-12">
+    <div class="py-8">
