@@ -3559,16 +3559,8 @@ html {
   background-color: rgb(203 213 225 / var(--tw-bg-opacity));
 }
 
-.p-4 {
-  padding: 1rem;
-}
-
 .p-2 {
   padding: 0.5rem;
-}
-
-.p-3 {
-  padding: 0.75rem;
 }
 
 .py-1 {
@@ -3595,10 +3587,6 @@ html {
 
 .pb-1 {
   padding-bottom: 0.25rem;
-}
-
-.pb-3 {
-  padding-bottom: 0.75rem;
 }
 
 .pb-2 {
