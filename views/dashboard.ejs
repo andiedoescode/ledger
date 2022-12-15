@@ -1,5 +1,18 @@
 <%- include('partials/header') -%>
-  <div class="container mx-auto h-full">
+  <section class="container mx-auto w-96">
+    <div class="stats shadow bg-zinc-50 nx-auto text-center border-2">
+      <div class="stat">
+        <div class="stat-title">Total Hours</div>
+        <div class="stat-value text-secondary"><%= totalHrs %></div>
+      </div>
+      <div class="stat">
+        <div class="stat-title">% Complete</div>
+        <div class="radial-progress text-primary" style="--value:30; --thickness: 0.75rem;">30%</div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="container mx-auto h-full">
     <div class="mb-8 pl-5">
       <a class="hidden sm:inline-grid btn btn-primary rounded-full" href="/addcourse">Add a CEU</a>
       <a class="btn btn-primary btn-circle text-3xl font-black sm:hidden pb-1.5" href="/addcourse">+</a>
@@ -60,6 +73,7 @@
             <% } %>
         </tbody>
     </table>
-    </div>
-  </div>  
+  </section>
+</div>  
+
 <%- include('partials/footer') -%>

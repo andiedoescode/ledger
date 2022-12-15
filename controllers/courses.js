@@ -9,9 +9,15 @@ module.exports = {
   getDashboard: async (req, res) => {
     try {
       const courses = await Course.find({ createdById: req.user.id}).sort({ completeDate: "desc" }).lean();
-      const user = req.user
+      let totalHrs = 0
+      courses.forEach(course => totalHrs += course.ceLength)
 
-      res.render("dashboard.ejs", { courses: courses, user: req.user, moment: moment});
+      res.render("dashboard.ejs", {
+        courses: courses,
+        totalHrs: totalHrs,
+        user: req.user,
+        moment: moment
+      });
     } catch (err) {
         console.log(err);
     }
@@ -23,7 +29,12 @@ module.exports = {
       const ce = await Course.findById(req.params.id);
       const user = await User.findById(ce.createdById);
 
-      res.render("course.ejs", { course: ce, user: req.user, moment:moment });
+      res.render("course.ejs", {
+        course: ce, 
+        user: req.user, 
+        moment:moment
+      });
+
     } catch (err) {
         console.log(err);
     }
@@ -33,7 +44,10 @@ module.exports = {
   //Get page to add a new course
   newCourse: (req, res) => {
     let today = moment.utc().format('YYYY-MM-DD');
-    res.render("addcourse.ejs", {today: today, user: req.user});
+    res.render("addcourse.ejs", {
+      today: today, 
+      user: req.user
+    });
   },
 
   //POST /course/
@@ -84,7 +98,10 @@ module.exports = {
       if (course.createdById != req.user.id) {
         res.redirect("/dashboard")
       } else {
-        res.render("editcourse.ejs", { course: course, user: req.user })
+        res.render("editcourse.ejs", { 
+          course: course, 
+          user: req.user 
+        })
       }
 
     } catch (err) {

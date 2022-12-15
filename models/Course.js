@@ -12,7 +12,6 @@ const CourseSchema = new mongoose.Schema({
     ceLength: {
         type: Number,
         required: true, 
-        
     },
     completeDate: {
         type: Date,

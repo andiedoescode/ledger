@@ -18,6 +18,11 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  goalHours: {
+    type: Number,
+    default: 0,
+    required: true,
+  },
   image: {
     type: String,
     default: "",
