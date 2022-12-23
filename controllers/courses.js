@@ -12,7 +12,7 @@ module.exports = {
       let totalHrs = 0
       courses.forEach(course => totalHrs += course.ceLength)
       let targetHrs = req.user.targetHrs
-      let targetCompletion = (totalHrs/targetHrs) * 100
+      let targetCompletion = Math.floor((totalHrs/targetHrs) * 100)
 
       res.render("dashboard.ejs", {
         courses: courses,

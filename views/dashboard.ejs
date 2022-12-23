@@ -1,21 +1,21 @@
 <%- include('partials/header') -%>
 <!-- <div class="flex"> -->
   <section class="flex container mx-auto">
-    <div class="stats shadow bg-zinc-50 mx-auto text-center border-2">
+    <div class="stats shadow bg-zinc-50 mx-auto text-center border-2 p-0">
       <div class="stat">
         <div class="stat-title">Total Hours</div>
         <div class="stat-value text-secondary"><%= totalHrs %></div>
       </div>
 
-        <div class="stat"> 
+        <div class="stat hidden sm:block"> 
           <div class="stat-title">% Complete</div>
           <% if(user.targetHrs !== 0) { %> 
             <div class="radial-progress text-primary" style="--value:<%= targetCompletion %>; --thickness: 0.75rem;"><%= targetCompletion %>%</div>
-          </div>
-      <% } else { %>
-        <div class="stat-value text-primary font-bold text-xl">N/A</div>
-      <% } %>
-      
+          <% } else { %>
+            <div class="stat-value text-primary font-bold text-xl">N/A</div>
+          <% } %>
+          <!-- <div class="stat-desc">of target</div> -->
+        </div>
     </div>
   </section>
 <!-- </div> -->
