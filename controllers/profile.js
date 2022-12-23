@@ -49,10 +49,12 @@ module.exports = {
   },
 
   //PUT /editProfile/:id
+  //Update user's profile
   updateProfile: async (req, res) => {
     let profile = await User.findById({ _id: req.user.id });
-    console.log (profile)
-    console.log(req.body.userName)
+    // console.log (profile)
+    // console.log(req.body.userName)
+    // console.log(req.body.profId)
 
     try {
       const profileData = {
@@ -71,6 +73,7 @@ module.exports = {
         profileData.image = result.secure_url
         profileData.cloudinaryId = result.public_id
       }
+
       await User.updateOne(profile, profileData)
 
         console.log("Profile has been updated!")
