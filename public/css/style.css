@@ -467,6 +467,78 @@ html {
   darken: #0D0630;
 }
 
+[data-theme=mytheme] {
+  --p: 217 91% 60%;
+  --pf: 217 91% 48%;
+  --sf: 163 100% 22%;
+  --af: 28 97% 32%;
+  --nf: 228 13% 24%;
+  --b2: 220 14% 86%;
+  --b3: 220 14% 78%;
+  --bc: 220 7% 19%;
+  --pc: 217 100% 92%;
+  --sc: 163 100% 85%;
+  --ac: 28 100% 88%;
+  --nc: 228 61% 86%;
+  --inc: 217 100% 14%;
+  --suc: 150 100% 86%;
+  --wac: 35 100% 12%;
+  --erc: 21 100% 90%;
+  --rounded-box: 1rem;
+  --rounded-btn: 0.5rem;
+  --rounded-badge: 1.9rem;
+  --animation-btn: 0.25s;
+  --animation-input: .2s;
+  --btn-text-case: uppercase;
+  --btn-focus-scale: 0.95;
+  --border-btn: 1px;
+  --tab-border: 1px;
+  --tab-radius: 0.5rem;
+  --s: 163 100% 27%;
+  --a: 28 97% 40%;
+  --n: 228 13% 30%;
+  --b1: 220 14% 96%;
+  --in: 217 53% 68%;
+  --su: 150 100% 30%;
+  --wa: 35 88% 59%;
+  --er: 21 90% 48%;
+  darken: #0D0630;
+}
+
+[data-theme=container] {
+  center: true;
+  --pf: 0 0% 0%;
+  --sf: 0 0% 0%;
+  --af: 0 0% 0%;
+  --nf: 0 0% 0%;
+  --b1: 0 0% 100%;
+  --b2: 0 0% 0%;
+  --b3: 0 0% 0%;
+  --in: 198 93% 60%;
+  --su: 158 64% 52%;
+  --wa: 43 96% 56%;
+  --er: 0 91% 71%;
+  --bc: 0 0% 80%;
+  --pc: 0 0% 80%;
+  --sc: 0 0% 80%;
+  --ac: 0 0% 80%;
+  --nc: 0 0% 80%;
+  --inc: 198 100% 12%;
+  --suc: 158 100% 10%;
+  --wac: 43 100% 11%;
+  --erc: 0 100% 14%;
+  --rounded-box: 1rem;
+  --rounded-btn: 0.5rem;
+  --rounded-badge: 1.9rem;
+  --animation-btn: 0.25s;
+  --animation-input: .2s;
+  --btn-text-case: uppercase;
+  --btn-focus-scale: 0.95;
+  --border-btn: 1px;
+  --tab-border: 1px;
+  --tab-radius: 0.5rem;
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -3309,12 +3381,12 @@ html {
   margin-bottom: 0.5rem;
 }
 
-.mt-3 {
-  margin-top: 0.75rem;
-}
-
 .mr-3 {
   margin-right: 0.75rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
 }
 
 .block {
@@ -3556,11 +3628,6 @@ html {
   line-height: 1.25rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -3574,6 +3641,11 @@ html {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-bold {
@@ -3610,24 +3682,9 @@ html {
   color: hsl(var(--p) / var(--tw-text-opacity));
 }
 
-.text-success {
-  --tw-text-opacity: 1;
-  color: hsl(var(--su) / var(--tw-text-opacity));
-}
-
 .text-base-content {
   --tw-text-opacity: 1;
   color: hsl(var(--bc) / var(--tw-text-opacity));
-}
-
-.text-warning {
-  --tw-text-opacity: 1;
-  color: hsl(var(--wa) / var(--tw-text-opacity));
-}
-
-.text-error {
-  --tw-text-opacity: 1;
-  color: hsl(var(--er) / var(--tw-text-opacity));
 }
 
 .underline {
