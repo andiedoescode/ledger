@@ -52,15 +52,13 @@ module.exports = {
   //Update user's profile
   updateProfile: async (req, res) => {
     let profile = await User.findById({ _id: req.user.id });
-    // console.log (profile)
-    // console.log(req.body.userName)
-    // console.log(req.body.profId)
 
     try {
       const profileData = {
         userName: req.body.userName,
         profId: req.body.profId,
-        user: req.user.id
+        user: req.user.id,
+        targetHrs: req.body.targetHrs
       }
 
       if (req.file) {

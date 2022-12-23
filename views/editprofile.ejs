@@ -48,6 +48,18 @@
                         value="<%= user.profId%>">
                 </div>
 
+                <!-- Target hours -->
+                <div class="mb-3">
+                    <label for="targetHrs" class="label">
+                        <span class="label-text text-lg">Target Hours</span>
+                    </label>
+                    <input type="number" min="0" step="0.1"
+                        class="input input-bordered w-full max-w-xs bg-slate-50"
+                        id="targetHrs"
+                        name="targetHrs"
+                        value="<%= user.targetHrs%>">                        
+                </div>
+
                 <!-- Profile pic upload -->
                 <div class="mb-3">
                     <label for="pfpUpload" class="label">

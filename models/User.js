@@ -18,7 +18,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  goalHours: {
+  targetHrs: {
     type: Number,
     default: 0,
     required: true,

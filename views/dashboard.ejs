@@ -6,10 +6,16 @@
         <div class="stat-title">Total Hours</div>
         <div class="stat-value text-secondary"><%= totalHrs %></div>
       </div>
-      <div class="stat">
-        <div class="stat-title">% Complete</div>
-        <div class="radial-progress text-primary" style="--value:30; --thickness: 0.75rem;">30%</div>
-      </div>
+
+        <div class="stat"> 
+          <div class="stat-title">% Complete</div>
+          <% if(user.targetHrs !== 0) { %> 
+            <div class="radial-progress text-primary" style="--value:<%= targetCompletion %>; --thickness: 0.75rem;"><%= targetCompletion %>%</div>
+          </div>
+      <% } else { %>
+        <div class="stat-value text-primary font-bold text-xl">N/A</div>
+      <% } %>
+      
     </div>
   </section>
 <!-- </div> -->
@@ -17,9 +23,7 @@
   <section class="container mx-auto h-full">
     <div class="mb-8 pl-5">
       <a class="hidden sm:inline-grid btn btn-primary rounded-full" href="/addcourse">Add a CEU</a>
-      <!-- <a class="btn btn-primary btn-circle text-3xl font-black sm:hidden pb-1.5" href="/addcourse">+</a> -->
-      <a href="/addcourse"><button class="btn btn-primary btn-circle text-3xl font-black sm:hidden pb-1.5">+</button></a>
-      
+      <a class="btn btn-primary btn-circle text-3xl font-black sm:hidden pb-1.5" href="/addcourse">+</a>
     </div>
 
     <div class="overflow-x-auto">
@@ -73,10 +77,7 @@
                   </tr>
                 <% } %>
             <% } else { %>
-              <div class="flex mx-auto justify-center mb-3">
-                <p class="font-semibold">You do not have any courses logged yet.</p>
-              </div>
-              
+              <span>You do not have any logged courses yet.</span>
             <% } %>
         </tbody>
     </table>

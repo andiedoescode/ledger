@@ -11,10 +11,14 @@ module.exports = {
       const courses = await Course.find({ createdById: req.user.id}).sort({ completeDate: "desc" }).lean();
       let totalHrs = 0
       courses.forEach(course => totalHrs += course.ceLength)
+      let targetHrs = req.user.targetHrs
+      let targetCompletion = (totalHrs/targetHrs) * 100
 
       res.render("dashboard.ejs", {
         courses: courses,
         totalHrs: totalHrs,
+        targetHrs: targetHrs,
+        targetCompletion: targetCompletion,
         user: req.user,
         moment: moment
       });

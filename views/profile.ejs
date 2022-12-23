@@ -24,8 +24,16 @@
           <% } else { %>
           Not provided
           <% } %></p>
+        <p>
+          <strong>Target Hours</strong>:
+          <% if(user.targetHrs !== 0) { %> 
+            <%= user.targetHrs %>
+          <% } else { %>
+          N/A
+          <% } %>
+        </p>
 
-          <section class="flex mx-auto">
+          <section class="flex mx-auto mt-3">
             <div class="stats stats-vertical lg:stats-horizontal shadow mx-auto bg-zinc-50">
   
               <div class="stat place-items-center">
