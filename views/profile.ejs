@@ -24,9 +24,26 @@
           <% } else { %>
           Not provided
           <% } %></p>
-        <p>Total Courses: <%= totalCourses %></p>
-        <p>Total Hours: <%= totalHrs %></p>
-        <a href="/editprofile/" class="btn btn-primary mt-8">Edit Profile</a>
+
+          <section class="flex mx-auto">
+            <div class="stats stats-vertical lg:stats-horizontal shadow mx-auto bg-zinc-50">
+  
+              <div class="stat place-items-center">
+                <div class="stat-title">Total Courses</div>
+                <div class="stat-value"><%= totalCourses %></div>
+              </div>
+              
+              <div class="stat place-items-center">
+                <div class="stat-title">Total Hours</div>
+                <div class="stat-value"><%= totalHrs %></div>
+              </div>
+            </div>
+          </section>
+          
+          <div>
+            <a href="/editprofile/" class="btn btn-primary mt-8">Edit Profile</a>
+          </div>
+
 
     </div>
 
