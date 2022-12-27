@@ -6,10 +6,27 @@
       <h2 class="font-bold mb-2"><%= user.userName %>'s Profile</h2>
     </div>
     <!-- Profile picture -->
-    <div>
-      <% if(user.cloudinaryId) { %> 
-        <img src=<%= user.image %> class="w-1/2 mx-auto rounded-full border-double border-8 border-accent">
+    <div class="flex">
+      <!-- Display profile pic with delete option if uploaded -->
+      <% if(user.cloudinaryId) { %>
+          <div class="relative">
+            <img src=<%= user.image %> class="z-0 w-1/2 mx-auto rounded-full border-double border-8 border-accent">
+          </div>
+          <div class="relative">
+            <form
+              action="/profile/<%= user.id %>/image?_method=PUT"
+              method="POST">
+              <!-- class="col-3" -->
+                <button
+                  class="btn btn-circle btn-error btn-outline btn-xs z-10 -ml-24 mt-1"
+                  type="submit">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </form>
+          </div>        
+                
       <% } else { %>
+        <!-- Display generic pfp if no upload -->
         <img src="/imgs/place-avatar-transp.svg" class="w-1/2 mx-auto rounded-full border-double border-8 border-accent">
       <% } %>
     </div>

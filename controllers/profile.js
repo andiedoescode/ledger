@@ -81,4 +81,34 @@ module.exports = {
         console.log(err);
     }
   },
-}
+
+  //PUT /profile/:id
+  //Delete user's profile picture
+  deletePfp: async (req, res) => {
+    //Find course by id
+    let user = await User.findById(req.user.id)
+
+    try {
+        //Delete image upload from Cloudinary
+        await cloudinary.uploader.destroy(user.cloudinaryId)
+
+        let filter = {"_id": `${req.user.id}`}
+        let update = {
+          'image': "",
+          'cloudinaryId': ""
+        }
+
+        //Wait for document to update and return updated document
+        await User.findOneAndUpdate(filter, update,
+          {new: true}
+        )
+
+      //Redirect back to the user's profile
+      res.redirect("/profile")
+    } catch (err) {
+      req.flash('error', { msg: "Could not delete this profile picture." })
+      console.log (err)
+    }
+  }
+
+};
