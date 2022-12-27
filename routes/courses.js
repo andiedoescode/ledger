@@ -12,6 +12,7 @@ router.post("/addCourse", upload.single("file"), coursesController.addCourse);
 router.get("/editCourse/:id", ensureAuth, coursesController.editCourse)
 
 router.put("/:id", ensureAuth, upload.single("file"), coursesController.updateCourse)
+router.put("/:id/image", ensureAuth, coursesController.deleteUpload)
 
 router.delete("/:id", coursesController.deleteCourse);
 

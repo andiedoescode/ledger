@@ -38,6 +38,16 @@
       <h4><span class="font-medium">Certificate:</span></h4>
       <% if(course.cloudinaryId) { %> 
         <img src=<%= course.image %> class="w-3/4 mx-auto pt-5">
+        <div class="flex flex-col items-center pt-3">
+          <form
+            action="/course/<%= course.id %>/image?_method=PUT"
+            method="POST"
+            class="col-3">
+            <button class="btn btn-ghost btn-outline btn-sm" type="submit">Delete Upload</button>
+          </form>
+        </div>
+        
+
       <% } else { %>
         <img src="/imgs/place-cert.png" class="w-3/4 mx-auto pt-5">
       <% } %>
