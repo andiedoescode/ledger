@@ -143,21 +143,57 @@ module.exports = {
       await Course.updateOne (course, courseData)
 
         console.log("Course has been updated!")
-        res.redirect("/dashboard");
+        //Redirect to course's info page
+        res.redirect("/course/" + `${req.params.id}`);
       } catch (err) {
         req.flash('error', { msg: "Could not update this course."})
         console.log(err);
     }
   },
 
-  //DELETE /course/:id
+  //DELETE /course/:id.cloudinaryId
   deleteCourse: async (req, res) => {
     try {
-         await Course.findByIdAndDelete({ _id: req.params.id}).lean()
+        //Find course by id
+        let course = await Course.findById({ _id: req.params.id})
+        //Delete image upload from Cloudinary
+        await cloudinary.uploader.destroy(course.cloudinaryId)
+        //Delete course from db
+        await Course.findByIdAndDelete({ _id: req.params.id}).lean()
       res.redirect("/dashboard")
     } catch (err) {
       req.flash('error', { msg: "Could not delete this course." })
       console.log (err)
     }
   },
+
+  //PUT /course/:id
+  //Update course by deleting upload
+  deleteUpload: async (req, res) => {
+    //Find course by id
+    let course = await Course.findById(req.params.id)
+
+    try {
+        //Delete image upload from Cloudinary
+        await cloudinary.uploader.destroy(course.cloudinaryId)
+
+        let filter = {"_id": `${req.params.id}`}
+        let update = {
+          'image': "",
+          'cloudinaryId': ""
+        }
+
+        //Wait for document to update and return updated document
+        await Course.findOneAndUpdate(filter, update,
+          {new: true}
+        )
+
+      //Redirect back to the course's info page
+      res.redirect("/course/" + `${req.params.id}`)
+    } catch (err) {
+      req.flash('error', { msg: "Could not delete this course." })
+      console.log (err)
+    }
+  }
+
 };

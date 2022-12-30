@@ -13,6 +13,7 @@ router.get("/", homeController.getIndex);
 router.get("/profile", ensureAuth, profileController.getProfile);
 router.get("/editprofile", ensureAuth, profileController.editProfile);
 router.put("/profile/:id", ensureAuth, upload.single("file"), profileController.updateProfile)
+router.put("/profile/:id/image", ensureAuth, profileController.deletePfp)
 
 router.get("/dashboard", ensureAuth, coursesController.getDashboard);
 
