@@ -3443,6 +3443,14 @@ html {
   margin-bottom: 0.5rem;
 }
 
+.-ml-24 {
+  margin-left: -6rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
 .mt-3 {
   margin-top: 0.75rem;
 }
@@ -3527,6 +3535,10 @@ html {
   height: 100%;
 }
 
+.h-4 {
+  height: 1rem;
+}
+
 .h-16 {
   height: 4rem;
 }
@@ -3569,6 +3581,10 @@ html {
 
 .w-screen {
   width: 100vw;
+}
+
+.w-4 {
+  width: 1rem;
 }
 
 .w-5 {
@@ -3757,6 +3773,10 @@ html {
 
 .pt-5 {
   padding-top: 1.25rem;
+}
+
+.pt-3 {
+  padding-top: 0.75rem;
 }
 
 .pl-5 {

@@ -36,7 +36,7 @@ module.exports = {
       res.render("course.ejs", {
         course: ce, 
         user: req.user, 
-        moment:moment
+        moment: moment
       });
 
     } catch (err) {
@@ -68,6 +68,7 @@ module.exports = {
           presenter: req.body.presenter,
           ceLength: req.body.ceLength,
           completeDate: req.body.completeDate,
+          courseNote: req.body.courseNote,
           createdById: req.user.id,
           image: result.secure_url,
           cloudinaryId: result.public_id,
@@ -125,6 +126,7 @@ module.exports = {
         presenter: req.body.presenter,
         ceLength: req.body.ceLength,
         completeDate: req.body.completeDate,
+        courseNote: req.body.courseNote,
         createdById: req.user.id,
       }
 
