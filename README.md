@@ -25,7 +25,7 @@ Goal Features:
 + Adjustable CE cycles
 + ~~Uploading CE certificates~~
 + Export CE transcript as a PDF
-+ *Personal notes for each course*
++ ~~Personal notes for each course~~
 + *Marking CE as "in progress"*
 + User-generated tags for CE
 + Filtering table
