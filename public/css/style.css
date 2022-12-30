@@ -676,6 +676,13 @@ html {
   pointer-events: none;
 }
 
+.btn-circle {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 9999px;
+  padding: 0px;
+}
+
 .btn.loading,
     .btn.loading:hover {
   pointer-events: none;
@@ -2953,6 +2960,62 @@ html {
   border-top-width: 4px;
 }
 
+.btn-xs {
+  height: 1.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  min-height: 1.5rem;
+  font-size: 0.75rem;
+}
+
+.btn-sm {
+  height: 2rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  min-height: 2rem;
+  font-size: 0.875rem;
+}
+
+.btn-square:where(.btn-xs) {
+  height: 1.5rem;
+  width: 1.5rem;
+  padding: 0px;
+}
+
+.btn-square:where(.btn-sm) {
+  height: 2rem;
+  width: 2rem;
+  padding: 0px;
+}
+
+.btn-circle:where(.btn-xs) {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 9999px;
+  padding: 0px;
+}
+
+.btn-circle:where(.btn-sm) {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 9999px;
+  padding: 0px;
+}
+
+.btn-circle:where(.btn-md) {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 9999px;
+  padding: 0px;
+}
+
+.btn-circle:where(.btn-lg) {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 9999px;
+  padding: 0px;
+}
+
 .file-input-sm {
   height: 2rem;
   padding-right: 0.75rem;
@@ -3235,6 +3298,14 @@ html {
   bottom: 0px;
 }
 
+.z-0 {
+  z-index: 0;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -3289,6 +3360,14 @@ html {
   margin-bottom: 0.5rem;
 }
 
+.-ml-24 {
+  margin-left: -6rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
 .mt-3 {
   margin-top: 0.75rem;
 }
@@ -3319,6 +3398,10 @@ html {
 
 .h-full {
   height: 100%;
+}
+
+.h-4 {
+  height: 1rem;
 }
 
 .h-16 {
@@ -3355,6 +3438,10 @@ html {
 
 .w-screen {
   width: 100vw;
+}
+
+.w-4 {
+  width: 1rem;
 }
 
 .w-5 {
@@ -3497,12 +3584,12 @@ html {
   background-color: rgb(203 213 225 / var(--tw-bg-opacity));
 }
 
-.p-2 {
-  padding: 0.5rem;
-}
-
 .p-0 {
   padding: 0px;
+}
+
+.p-2 {
+  padding: 0.5rem;
 }
 
 .px-4 {
@@ -3522,6 +3609,10 @@ html {
 
 .pt-5 {
   padding-top: 1.25rem;
+}
+
+.pt-3 {
+  padding-top: 0.75rem;
 }
 
 .pl-5 {
@@ -3721,18 +3812,6 @@ html {
 }
 
 @media (min-width: 768px) {
-  .md\:block {
-    display: block;
-  }
-
-  .md\:inline-block {
-    display: inline-block;
-  }
-
-  .md\:flex {
-    display: flex;
-  }
-
   .md\:w-fit {
     width: -moz-fit-content;
     width: fit-content;

@@ -17,6 +17,9 @@ const CourseSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    courseNote: {
+        type: String,
+    },
     createdById: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
