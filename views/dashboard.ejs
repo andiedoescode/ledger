@@ -56,7 +56,11 @@
                         <div class="collapse-content"> 
                           <h4><span class="font-medium">Length:</span> <%= courses[i].ceLength %> hr(s)</h4>
                           <h4><span class="font-medium">Presenter:</span> <%= courses[i].presenter %></h4>
-                          <h4><span class="font-medium">Date:</span> <%= moment.utc(courses[i].completeDate).format('MMM DD, YYYY') %></h4>
+                          <% if(courses[i].completeDate) { %>
+                            <h4><span class="font-medium">Date:</span> <%= moment.utc(courses[i].completeDate).format('MMM DD, YYYY') %></h4>
+                            <% } else { %>
+                              <h4><span class="font-medium">Date:</span> N/A</h4>
+                              <% } %>
                           <h4 class="underline"><a href="/course/<%= courses[i]._id%>">View more</a></h4>
                         </div>
                     </td>

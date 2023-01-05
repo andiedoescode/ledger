@@ -43,7 +43,11 @@
                     <label for="completeDate" class="label">
                         <span class="label-text text-lg">Date Completed</span>
                     </label>
-                    <input type="date" class="input input-bordered w-full max-w-xs bg-slate-50" id="completeDate" name="completeDate" value="<%= course.completeDate.toISOString().split('T')[0]%>">
+                    <% if(course.completeDate) { %>
+                        <input type="date" class="input input-bordered w-full max-w-xs bg-slate-50" id="completeDate" name="completeDate" value="<%= course.completeDate.toISOString().split('T')[0]%>">
+                    <% } else { %>
+                        <input type="date" class="input input-bordered w-full max-w-xs bg-slate-50" id="completeDate" name="completeDate" value="">
+                        <% } %>
                 </div>
                 <div class="mb-3">
                     <label for="courseNote" class="label">

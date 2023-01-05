@@ -103,8 +103,10 @@ module.exports = {
       if (course.createdById != req.user.id) {
         res.redirect("/dashboard")
       } else {
+        let today = moment.utc().format('YYYY-MM-DD');
         res.render("editcourse.ejs", { 
           course: course, 
+          today: today,
           user: req.user 
         })
       }
