@@ -26,7 +26,7 @@ Goal Features:
 + ~~Uploading CE certificates~~
 + Export CE transcript as a PDF
 + ~~Personal notes for each course~~
-+ ~~*Marking CE as "in progress"~~
++ ~~Marking CE as "in progress~~
 + User-generated tags for CE
 + Filtering table
 + Searching CEs
