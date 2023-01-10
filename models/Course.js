@@ -15,10 +15,14 @@ const CourseSchema = new mongoose.Schema({
     },
     completeDate: {
         type: Date,
-        default: Date.now,
+        default: undefined,
     },
     courseNote: {
         type: String,
+    },
+    inProgress: {
+        type: Boolean,
+        default: true,
     },
     createdById: {
         type: mongoose.Schema.Types.ObjectId,
@@ -28,7 +32,7 @@ const CourseSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
-    cloudinaryId: {
+    cloudinaryId: { 
         type: String,
         require: true,
     },
