@@ -22,7 +22,7 @@ const CourseSchema = new mongoose.Schema({
     },
     inProgress: {
         type: Boolean,
-        default: false,
+        default: true,
     },
     createdById: {
         type: mongoose.Schema.Types.ObjectId,
