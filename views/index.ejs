@@ -1,25 +1,55 @@
 <%- include('partials/header') -%>
 
 <div class="bg-info">
-<main class="container mx-auto">
+    <main class="container mx-auto py-8 sm:py-24">
 
-    <div class="flex flex-wrap-reverse lg:flex-row">
-        <section class="basis-4/5 mx-auto text-center lg:gap-y-12 lg:basis-1/2 lg:flex lg:flex-col lg:justify-center lg:pl-5">
-            <div>
-                <span class="italic text-2xl md:text-3xl lg:text-5xl font-semibold">Let us help you keep track of all your continuing education with Ledger.</span>
-            </div>
-            <div class="mt-8 mb-9 justify-center flex flex-col gap-y-5 sm:flex-row sm:space-x-10 lg:m-0">
-                <span><a href="/login" class="btn btn-primary text-lg"> Login</a></span>
-                <span><a href="/signup" class="btn btn-secondary text-lg"> Sign Up</a></span>
-            </div>
+        <div class="flex flex-col-reverse lg:flex-row">
+            <div class="basis-4/5 mx-auto text-center lg:gap-y-12 lg:basis-1/2 lg:flex lg:flex-col lg:justify-center lg:pl-5">
+                <div>
+                    <span class="italic text-2xl md:text-3xl lg:text-5xl font-semibold">Let us save you time. One place to track of all your continuing education.</span>
+                </div>
+                <div class="mt-8 mb-9 justify-center flex flex-col gap-y-5 sm:flex-row sm:space-x-10 lg:m-0">
+                    <span><a href="/login" class="btn btn-primary text-lg"> Login</a></span>
+                    <span><a href="/signup" class="btn btn-secondary text-lg"> Sign Up</a></span>
+                </div>
 
-        </section>
-        <section class="lg:basis-1/2 mx-auto">
-            <img class="w-screen" src="/imgs/PM.svg">
-        </section>
+            </div>
+            <div class="lg:basis-1/2 mx-auto">
+                <img class="w-screen" src="/imgs/PM.svg">
+            </div>
+        </div>
+    </main>
+    <div class="flex lg:flex-row bg-neutral-content text-center justify-center py-8 md:py-24">
+        <div class="mx-auto w-9/12 flex flex-col md:flex-row p-4 outline outline-1 rounded-lg py-12">
+            <div class="basis-1/3">
+                <i class="fas fa-layer-group text-[72px] font-light"></i>
+                <h3 class="text-lg md:text-xl lg:text-3xl mt-4 mb-4 md:mb-0">Organize Certificates</h3>
+            </div>
+            <div class="basis-1/3">
+                <i class="far fa-clock text-[72px] font-light"></i>
+                <h3 class="text-lg md:text-xl lg:text-3xl mt-4 mb-4 md:mb-0">Save Time</h3>
+            </div>
+            <div class="basis-1/3">
+                <i class="far fa-list-alt text-[72px]"></i>
+                <h3 class="text-lg md:text-xl lg:text-3xl mt-4 mb-4 md:mb-0">Track Courses</h3>
+            </div>
+        </div>
     </div>
-    
-</main>
+    <div class="flex lg:flex-row w-9/12 justify-evenly py-8 md:py-24 mx-auto ">
+        <div class="basis-1/2">
+            <p class="text-2xl">There are multiple benefits to using our app to track your education.</p>
+        </div>
+        <div class="basis-2/3">
+            <ul class="text-2xl">
+                <li>Convenience: <span class="italic text-xl">Easily access your certificates from your phone, tablet, or laptop.</span></li>
+                <li>Organization: <span class="italic text-xl">Keep all your certificates in one place, making it easy to find the one you need.</span></li>
+                <li>Sharing: <span class="italic text-xl">Easily share your certificates with others, such as licensing boards or employers.</span></li>
+                <!-- <li>Keeping track: <span class="italic text-xl">Easily access your certificates from your phone, tablet, or laptop.</span></li> -->
+                <li>Saving space: <span class="italic text-xl">Storing certificates in electronic form can minimizes the amount to be printed.</span></li>
+                <li>Backup: <span class="italic text-xl">In case of any physical loss or damage, your certificates are in the cloud.</span></li>
+            </ul>
+        </div>
+    </div>
 </div> 
 
 <%- include('partials/footer') -%>
