@@ -9,14 +9,22 @@ module.exports = {
   getDashboard: async (req, res) => {
     try {
       const courses = await Course.find({ createdById: req.user.id}).sort({ completeDate: "desc" }).lean();
-      let totalHrs = 0
-      courses.forEach(course => totalHrs += course.ceLength)
+      let filtered = courses.filter(course => !course.inProgress)
+
+      let completedHrs = 0
+      let overallHrs = 0
+          
+      //Calculate total hours of COMPLETED courses
+      filtered.forEach(course => completedHrs += course.ceLength)
+      //Calculate total hours of courses
+      courses.forEach(course => overallHrs += course.ceLength)
+      
       let targetHrs = req.user.targetHrs
-      let targetCompletion = Math.floor((totalHrs/targetHrs) * 100)
+      let targetCompletion = Math.floor((completedHrs/targetHrs) * 100)
 
       res.render("dashboard.ejs", {
         courses: courses,
-        totalHrs: totalHrs,
+        completedHrs: completedHrs,
         targetHrs: targetHrs,
         targetCompletion: targetCompletion,
         user: req.user,
@@ -59,30 +67,76 @@ module.exports = {
   addCourse: async (req, res) => {
     try {
 
+      let completion = req.body.courseCompleted
+      console.log(completion)
+
       if (req.file !== undefined) {
         // Upload image to cloudinary
         const result = await cloudinary.uploader.upload(req.file.path);
 
-        await Course.create({
-          title: req.body.title,
-          presenter: req.body.presenter,
-          ceLength: req.body.ceLength,
-          completeDate: req.body.completeDate,
-          courseNote: req.body.courseNote,
-          createdById: req.user.id,
-          image: result.secure_url,
-          cloudinaryId: result.public_id,
-        });
+        if (completion == 'completed') {
+          await Course.create({
+            title: req.body.title,
+            presenter: req.body.presenter,
+            ceLength: req.body.ceLength,
+            inProgress: 'false',
+            completeDate: req.body.completeDate,
+            courseNote: req.body.courseNote,
+            createdById: req.user.id,
+            image: result.secure_url,
+            cloudinaryId: result.public_id,
+          });
+        } else {
+          await Course.create({
+            title: req.body.title,
+            presenter: req.body.presenter,
+            ceLength: req.body.ceLength,
+            inProgress: req.body.courseCompleted,
+            completeDate: req.body.completeDate,
+            courseNote: req.body.courseNote,
+            createdById: req.user.id,
+            image: result.secure_url,
+            cloudinaryId: result.public_id,
+          });
+        }
+
       } else {
-        await Course.create({
-          title: req.body.title,
-          presenter: req.body.presenter,
-          ceLength: req.body.ceLength,
-          completeDate: req.body.completeDate,
-          createdById: req.user.id,
-          image: "",
-          cloudinaryId: "",
-        });
+
+        if (completion == 'completed') {
+          await Course.create({
+            title: req.body.title,
+            presenter: req.body.presenter,
+            ceLength: req.body.ceLength,
+            inProgress: 'false',
+            completeDate: req.body.completeDate,
+            courseNote: req.body.courseNote,
+            createdById: req.user.id,
+            image: "",
+            cloudinaryId: "",
+          });
+        } else {
+          await Course.create({
+            title: req.body.title,
+            presenter: req.body.presenter,
+            ceLength: req.body.ceLength,
+            inProgress: req.body.courseCompleted,
+            completeDate: req.body.completeDate,
+            courseNote: req.body.courseNote,
+            createdById: req.user.id,
+            image: "",
+            cloudinaryId: "",
+          });
+        }
+        // await Course.create({
+        //   title: req.body.title,
+        //   presenter: req.body.presenter,
+        //   ceLength: req.body.ceLength,
+        //   completeDate: req.body.completeDate,
+        //   courseNote: req.body.courseNote,
+        //   createdById: req.user.id,
+        //   image: "",
+        //   cloudinaryId: "",
+        // });
       }
       console.log("Course has been added!");
       res.redirect("/dashboard");
@@ -103,8 +157,10 @@ module.exports = {
       if (course.createdById != req.user.id) {
         res.redirect("/dashboard")
       } else {
+        let today = moment.utc().format('YYYY-MM-DD');
         res.render("editcourse.ejs", { 
           course: course, 
+          today: today,
           user: req.user 
         })
       }
@@ -156,8 +212,10 @@ module.exports = {
     try {
         //Find course by id
         let course = await Course.findById({ _id: req.params.id})
-        //Delete image upload from Cloudinary
-        await cloudinary.uploader.destroy(course.cloudinaryId)
+        //If image isn't empty, delete image upload from Cloudinary
+        if (course.cloudinaryId != '') {
+          await cloudinary.uploader.destroy(course.cloudinaryId)
+          }
         //Delete course from db
         await Course.findByIdAndDelete({ _id: req.params.id}).lean()
       res.redirect("/dashboard")
