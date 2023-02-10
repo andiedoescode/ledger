@@ -3729,6 +3729,10 @@ html {
   line-height: 2rem;
 }
 
+.text-\[60px\] {
+  font-size: 60px;
+}
+
 .text-\[72px\] {
   font-size: 72px;
 }
