@@ -12,9 +12,11 @@ A centralized repository for professionals to track and log completed continuing
 
 Professionals in the healthcare and education fields often have to complete yearly continuing education (CE) courses or hours. Tracking and organizing all the information and documentation for can be a hassle. As a former Speech-Language Pathologist, I became frustrated with not having one place for everything to live.
 
-Ledger aims to be a centralized online space to be able to track it all. Built with the MERN stack, it is a platform aimed to be an streamlined resource for professionals such as SLPs, OTs, PTs, and more to be able to track information about CE with the option to upload the certificates of completion.
+Ledger aims to be a centralized online space to be able to track it all. A full stack web app, it is a platform aimed to be an streamlined resource for professionals such as SLPs, OTs, PTs, and more to be able to track information about CE with the option to upload the certificates of completion.
 
 ## Optimizations
+
++ Rebuilding with React
 
 Goal Features:
 
