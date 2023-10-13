@@ -2,17 +2,16 @@
 
 A centralized repository for professionals to track and log completed continuing education courses.
 
+![Screen recording of app functionality](ss.gif)
 **Link to project:** [Deployed version](https://ledger.cyclic.app/)
-
-<!-- ![alt tag](http://placecorgi.com/1200/650) -->
 
 ## How It's Made:
 
 **Tech used:** JavaScript, Node, Express, MongoDB, Mongoose, Multer, TailwindCSS, HTML, CSS
 
-Professionals in the healthcare and education fields often have to complete yearly continuing education (CE) courses or hours. Tracking and organizing all the information and documentation for can be a hassle. As a former Speech-Language Pathologist, I became frustrated with not having one place for everything to live.
+Professionals in the healthcare and education fields often have to complete yearly continuing education (CE) courses or hours. Tracking and organizing all the information and documentation can be a hassle. As a former Speech-Language Pathologist, I became frustrated with not having one place for everything to live.
 
-Ledger aims to be a centralized online space to be able to track it all. A full stack web app, it is a platform aimed to be an streamlined resource for professionals such as SLPs, OTs, PTs, and more to be able to track information about CE with the option to upload the certificates of completion.
+Ledger aims to be a centralized online space to be able to track it all. A full stack web app, it is a platform aimed to be a streamlined resource for professionals such as SLPs, OTs, PTs, and more to be able to track information about CE with the option to upload the certificates of completion.
 
 ## Optimizations
 
